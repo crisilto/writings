@@ -57,6 +57,17 @@ i hope this is a loop
 and soon i’ll forget  
 who i became now
 too`
+    },
+    {
+        date: 'may 22th',
+        title: '#6',
+        text: `how can i think about a future  
+when i’m still stuck in the past  
+every day i remember  
+the day i was born  
+how no one asked  
+and now  
+i’m a shadow they forgot`
     }
 ]
 
