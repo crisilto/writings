@@ -91,6 +91,10 @@ body {
         gap: 0.6rem;
     }
 
+    #poem-date {
+        font-size: 0.5rem;
+    }
+
     #poem-title {
         font-size: 1.5rem;
     }
