@@ -1,37 +1,87 @@
-const poemFiles = [
-    'writings/22-05.html',
-    'writings/23-05.html',
-    'writings/23-05-2.html',
+const poems = [
+    {
+        date: 'may 22th',
+        title: '#1',
+        text: `people come to my life
+they swear they are comfortable in it
+but i'm already standing at the door with a knife
+waiting for them to leave
+because that would be easier to bear`
+    },
+    {
+        date: 'may 22th',
+        title: '#2',
+        text: `when i try to sleep  
+and silence my mind  
+the voices return  
+louder than mine  
+how can i rest  
+if nothing is still  
+how can i live  
+if all i know is grief`
+    },
+    {
+        date: 'may 22th',
+        title: '#3',
+        text: `you were the only one  
+who saw my worth  
+i know you were wrong  
+since you are gone
+how could you be right  
+if no one else ever did  
+you were just blind  
+trying to make me feel whole  
+in a world  
+where i am the hole`
+    },
+    {
+        date: 'may 22th',
+        title: '#4',
+        text: `when i see the mirror  
+i don't recognize the reflection  
+when i hear my voice  
+i only feel rejection  
+even air  
+feels wrong in my chest  
+how could someone like this  
+deserve to be`
+    },
+    {
+        date: 'may 22th',
+        title: '#5',
+        text: `i try  
+but i can’t  
+remember anything  
+from when i was a child  
+i hope this is a loop  
+and soon i’ll forget  
+who i became now
+too`
+    }
 ]
 
-let currentIndex = 0
+let current = 0
 
-const poemContainer = document.getElementById('poem-container')
-
-function loadPoem(index) {
-    poemContainer.innerHTML = '<div class="loading">loading...</div>'
-    fetch(poemFiles[index])
-        .then(res => res.text())
-        .then(html => {
-            poemContainer.innerHTML = html
-        })
-        .catch(() => {
-            poemContainer.innerHTML = '<div class="loading">error</div>'
-        })
+function showPoem(index) {
+    const container = document.getElementById('poem-container')
+    const poem = poems[index]
+    container.innerHTML = `
+    <div id="poem-date">${poem.date}</div>
+    <div id="poem-title">${poem.title}</div>
+    <div id="poem-text">${poem.text}</div>
+  `
 }
 
 function nextPoem() {
-    if (currentIndex < poemFiles.length - 1) {
-        currentIndex++
-        loadPoem(currentIndex)
-    }
+    current = (current + 1) % poems.length
+    showPoem(current)
 }
 
 function prevPoem() {
-    if (currentIndex > 0) {
-        currentIndex--
-        loadPoem(currentIndex)
-    }
+    current = (current - 1 + poems.length) % poems.length
+    showPoem(current)
 }
 
-loadPoem(currentIndex)
+window.onload = () => {
+    showPoem(current)
+}
