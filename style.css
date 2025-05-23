@@ -79,9 +79,9 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        width: 90vw;
+        width: 95vw;
         height: 50vh;
-        padding: 4.5rem;
+        padding: 2rem;
         border-radius: 16px;
     }
 
